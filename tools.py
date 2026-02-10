@@ -1,4 +1,21 @@
 import numpy as np
+import os
+from PIL import Image
+
+def process_and_binarize(filename, input_folder="samples", threshold=128):
+    input_path = os.path.join(input_folder, filename)
+
+    try:
+        with Image.open(input_path) as img:
+            img.seek(0)
+            gray_img = img.convert('L')
+            np_array = np.array(gray_img)
+            
+            binary_array = (np_array > threshold).astype(int)
+            
+            return binary_array
+    except Exception as e:
+        print(e)
 
 def connected_components(matrix:np.ndarray, neighbor:int = 4) -> int:
     rows, cols = matrix.shape
@@ -26,9 +43,10 @@ def connected_components(matrix:np.ndarray, neighbor:int = 4) -> int:
 
                     for dr, dc in movements:
                         nr, nc = actual_row + dr, actual_col + dc
-                        if matrix[nr][nc] == 1 and not visited_position[nr][nc]:
-                            visited_position[nr][nc] = True
-                            pile.append((nr, nc))
+                        if 0 <= nr < rows and 0 <= nc < cols:
+                            if matrix[nr][nc] == 1 and not visited_position[nr][nc]:
+                                visited_position[nr][nc] = True
+                                pile.append((nr, nc))
 
     return num_objects
 
