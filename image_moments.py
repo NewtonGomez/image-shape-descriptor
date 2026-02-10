@@ -29,7 +29,7 @@ def calc_central_moments(matrix:np.ndarray) -> dict:
         return float(mu_val / (m00 ** gamma))
 
     return {
-        "area":m00,
+        "m00":m00,
         "centroid":(cx,cy),
         "eta_00": get_eta(0, 0), # Debería ser 1.0
         "eta_10": get_eta(1, 0), # Debería ser ~0.0 (por definición de centroide)

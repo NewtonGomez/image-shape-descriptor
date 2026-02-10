@@ -50,7 +50,7 @@ def connected_components(matrix:np.ndarray, neighbor:int = 4) -> int:
 
     return num_objects
 
-def find_outline(matrix:np.ndarray, input_path:str, output_folder:str="outlines") -> dict:
+def find_outline(matrix:np.ndarray) -> dict:
     rows, cols = matrix.shape
     cont_outline = 0
     outline = np.zeros((rows, cols), dtype=int)
@@ -66,6 +66,4 @@ def find_outline(matrix:np.ndarray, input_path:str, output_folder:str="outlines"
                 cont_outline += 1
             else:
                 outline[i][j] = 0
-
-    #save_array_to_csv(outline, output_folder, input_path)
     return {"contorno": outline, "perimetro":cont_outline}
