@@ -2,6 +2,15 @@ import numpy as np
 import os
 from PIL import Image
 
+def save_matrix_to_csv(matrix_data:np.ndarray, filename: str):
+    filename = filename.split(".")[0]
+    if not filename.endswith('.csv'):
+        filename = f"{filename}.csv"
+
+    np.savetxt(filename, matrix_data, delimiter=",", fmt='%g')
+    
+    print(f"File saved successfully: {filename}")
+
 def process_and_binarize(filename, input_folder="samples", threshold=128):
     input_path = os.path.join(input_folder, filename)
 

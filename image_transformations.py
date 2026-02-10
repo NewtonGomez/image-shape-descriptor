@@ -1,5 +1,19 @@
 import numpy as np
 
+def scalate_image(imagen, scale):
+    rows, cols = imagen.shape
+    
+    nuevo_alto = int(rows * scale)
+    nuevo_ancho = int(cols * scale)
+    
+    row_indices = (np.arange(nuevo_alto) / scale).astype(int)
+    col_indices = (np.arange(nuevo_ancho) / scale).astype(int)
+    row_indices = np.clip(row_indices, 0, rows - 1)
+    col_indices = np.clip(col_indices, 0, cols - 1)
+    imagen_nueva = imagen[np.ix_(row_indices, col_indices)]
+    
+    return imagen_nueva
+
 def rotate_image(matrix:np.ndarray, centroid:tuple, angle:int = 45) -> np.ndarray:
     rows, cols = matrix.shape
     rotated_img = np.zeros_like(matrix)
