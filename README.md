@@ -19,7 +19,7 @@ Las imagenes fueron obtenidas del repositorio: Ralph, R. (s. f.). MPEG-7 Shape D
 - Analizar componentes conectados y contornos de objetos
 - Generar un conjunto de datos con características para análisis posterior
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 ├── main.py                      # Script principal que orquesta el análisis
