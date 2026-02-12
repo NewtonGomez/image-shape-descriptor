@@ -148,7 +148,7 @@ Esto valida la robustez de los descriptores ante transformaciones geométricas.
 - La rotación se aplica a 225° para evaluar invariancia
 - El escalado se aplica con factor 1.5x
 - La traslación se aplica con offset (100, 10) píxeles
-## 📜 Licencia
+## Licencia
 
 Este proyecto está licenciado bajo la **MIT License** - ver el archivo [LICENSE](LICENSE) para más detalles.
 ---
